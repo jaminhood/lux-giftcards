@@ -1,0 +1,1 @@
+{"version":3,"file":"index.css","mappings":";;;AAAA,cAAc;AACd,oBAAoB;AACpB,mBAAmB;;AAEnB;CACC,yBAAyB;AAC1B","sources":["webpack://lux-giftcards/./src/index.css"],"sourcesContent":["@tailwind base;\r\n@tailwind components;\r\n@tailwind utilities;\r\n\r\n* {\r\n\t@apply box-border p-0 m-0;\r\n}\r\n"],"names":[],"sourceRoot":""}
