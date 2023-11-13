@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Lux Giftcards
- * Plugin URI: https://github.com/jaminhood/exchange-manager
+ * Plugin URI: https://github.com/jaminhood/lux-giftcards
  * Version: 1.0.0
  * Description: This plugin will access all giftcard orders and allow you make changes to them
  * Author: JaminHood
@@ -45,22 +45,6 @@ if (!class_exists('LuxGiftcards')) {
       new LuxGiftcardsUtils;
       # === Instantiate the controller class
       new LuxGiftcardsRest;
-
-      // $input_data = array(
-      //   'customer_id' => 1,
-      //   'asset_id'      => 8,
-      //   'quantity' => 5,
-      //   'price' => "78.99",
-      //   'card_picture' => 8,
-      //   'order_status'  => 1
-      // );
-
-      // global $wpdb;
-      // $table_name = $wpdb->prefix . 'hid_ex_m_giftcard_orders';
-
-      // $wpdb->insert($table_name, $input_data);
-      // $orders = hid_ex_m_get_all_giftcard_orders();
-      // print_r($orders);
     }
 
     # === On activation
