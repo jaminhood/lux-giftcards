@@ -310,10 +310,21 @@ if (!class_exists('LuxGiftcardsRest')) :
         wp_update_attachment_metadata($data, wp_generate_attachment_metadata($data, $upload['file']));
 
         $luxDBH = new LuxDBH;
-        $id = $request['asset_id'];
+        $id = sanitize_text_field($request['asset_id']);
         $asset = $luxDBH->lux_get_giftcard_sub_category_data($id);
-        $quantity_san = $request['quantity'];
-        $price = intval($quantity_san) * intval($asset->rate);
+        $quantity_san = sanitize_text_field($request['quantity']);
+        $quantity_int = intval($quantity_san);
+        $rate_int = intval($asset->rate);
+
+        if ($quantity_int === 0 && $rate_int === 0) {
+          return new WP_Error(
+            'error processing order', // code
+            "error processing quantity and price", // data
+            array('status' => 400) // status
+          );
+        }
+
+        $price = $quantity_int * $rate_int;
 
         $input_data = array(
           'customer_id' => get_current_user_id(),
