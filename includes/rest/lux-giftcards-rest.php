@@ -206,7 +206,7 @@ if (!class_exists('LuxGiftcardsRest')) :
             # === Set customer name
             $asset = $luxDBH->lux_get_giftcard_sub_category_data($single->asset_id);
 
-            $single->asset = $asset->sub_category;
+            $single->asset = $asset['sub_category'];
             unset($single->asset_id);
 
             $single->snapshot = wp_get_attachment_url($single->card_picture);
