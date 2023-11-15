@@ -44,6 +44,12 @@ if (!class_exists('LuxGiftcardsRest')) :
         'callback' => array($this, 'get_customer_giftcards'),
         'permission_callback' => 'hid_ex_m_rest_permit_customers'
       ]);
+      # === Giftcard get all subcategories routes
+      register_rest_route('l-card/v1', 'get-rates', [
+        'methods'  => 'GET',
+        'callback' => array($this, 'get_rates'),
+        'permission_callback' => 'hid_ex_m_rest_permit_customers'
+      ]);
       # === Giftcard sell routes
       register_rest_route('l-card/v1', 'sell', [
         'methods'  => 'POST',
@@ -229,6 +235,30 @@ if (!class_exists('LuxGiftcardsRest')) :
 
         # === Set response to get all customer giftcards
         $response = new WP_REST_Response($output_data);
+        # === Set response status to 200
+        $response->set_status(200);
+        # === Return response object
+        return $response;
+      } catch (\Throwable $th) {
+        # === Return error message
+        return new WP_Error(
+          'unknown error occured', // code
+          'Error occured while trying to fetch giftcards', // data
+          array('status' => 400) // status
+        );
+      }
+    }
+
+    # === Get giftcard rates method
+    public function get_rates()
+    {
+      # === Try to execute method's actions
+      try {
+        # === Instantiate lux database handler
+        $luxDBH = new LuxDBH;
+
+        # === Set response to get all customer giftcards
+        $response = new WP_REST_Response($luxDBH->lux_get_all_giftcard_sub_categories());
         # === Set response status to 200
         $response->set_status(200);
         # === Return response object
