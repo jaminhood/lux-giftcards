@@ -313,7 +313,7 @@ if (!class_exists('LuxGiftcardsRest')) :
         $id = sanitize_text_field($request['asset_id']);
         $asset = $luxDBH->lux_get_giftcard_sub_category_data($id);
         $quantity_san = sanitize_text_field($request['quantity']);
-        $price = $quantity_san * $asset->rate;
+        $price = intval($quantity_san) * intval($asset->rate);
 
         $input_data = array(
           'customer_id' => get_current_user_id(),
