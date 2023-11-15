@@ -41,13 +41,13 @@ if (!class_exists('LuxGiftcardsRest')) :
       # === Giftcard get customer routes
       register_rest_route('l-card/v1', 'get-cards', [
         'methods'  => 'GET',
-        'callback' => array($this, 'get_giftcards'),
+        'callback' => array($this, 'get_customer_giftcards'),
         'permission_callback' => 'hid_ex_m_rest_permit_customers'
       ]);
       # === Giftcard sell routes
       register_rest_route('l-card/v1', 'sell', [
         'methods'  => 'POST',
-        'callback' => array($this, 'set_giftcards'),
+        'callback' => array($this, 'set_customer_giftcards'),
         'permission_callback' => 'hid_ex_m_rest_permit_customers'
       ]);
     }
