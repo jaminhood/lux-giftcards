@@ -35,8 +35,8 @@ if (!class_exists('LuxGiftcardsUtils')) :
     # === Load assets
     public function load_assets()
     {
-      wp_enqueue_script('giftcards-js', LGURL . '/build/index.js', array('wp-element'), '1.0', true);
-      wp_register_style('giftcards-css', LGURL . '/build/index.css', array(), time());
+      wp_enqueue_script('giftcards-js', LGURL . 'build/index.js', array('wp-element'), '1.0', true);
+      wp_register_style('giftcards-css', LGURL . 'build/index.css', array(), time());
       wp_enqueue_style('giftcards-css');
     }
 

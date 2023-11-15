@@ -206,7 +206,7 @@ if (!class_exists('LuxGiftcardsRest')) :
             # === Set customer name
             $asset = $luxDBH->lux_get_giftcard_sub_category_data($single->asset_id);
 
-            $single->asset = $asset->name;
+            $single->asset = $asset->sub_category;
             unset($single->asset_id);
 
             $single->snapshot = wp_get_attachment_url($single->card_picture);
@@ -310,9 +310,9 @@ if (!class_exists('LuxGiftcardsRest')) :
         wp_update_attachment_metadata($data, wp_generate_attachment_metadata($data, $upload['file']));
 
         $luxDBH = new LuxDBH;
-        $id = sanitize_text_field($request['asset_id']);
+        $id = $request['asset_id'];
         $asset = $luxDBH->lux_get_giftcard_sub_category_data($id);
-        $quantity_san = sanitize_text_field($request['quantity']);
+        $quantity_san = $request['quantity'];
         $price = intval($quantity_san) * intval($asset->rate);
 
         $input_data = array(

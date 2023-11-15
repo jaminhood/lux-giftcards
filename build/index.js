@@ -399,7 +399,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   API_URL: () => (/* binding */ API_URL)
 /* harmony export */ });
 // export const API_URL = `http://localhost/dev/wp-json/l-card/v1`
-const API_URL = `https://myluxtrade.com/dev/wp-json/l-card/v1`;
+const API_URL = `https://myluxtrade.com/wp-json/l-card/v1`;
 
 /***/ }),
 
