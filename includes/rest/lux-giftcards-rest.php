@@ -365,7 +365,7 @@ if (!class_exists('LuxGiftcardsRest')) :
           'order_status'  => 1
         );
 
-        hid_ex_m_create_new_giftcard_order($input_data);
+        lux_giftcard_create_new_giftcard_order($input_data);
 
         $response = new WP_REST_Response('giftcard processed successfully');
         $response->set_status(200);
